@@ -1,0 +1,30 @@
+mport discord
+from discord.ext import commands 
+# La variable intents almacena los privilegios del bot
+intents = discord.Intents.default()
+# Activar el privilegio de lectura de mensajes
+intents.message_content = True
+# Crear un bot en la variable cliente y transferirle los privilegios
+bot = commands.Bot(command_prefix= "$", intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'Hemos iniciado sesión como {bot.user}')
+@bot.command()
+async def Quiero_un_carro(ctx):
+    await ctx.send("Te requiero comprar un carro electrico")
+
+@bot.command()
+async def Nos_se_reciclar(ctx):
+    await ctx.send("Necesitas saber como separar la basura, sige buscando informacion")
+    
+@bot.command()
+async def que_significa_reciclar(ctx):
+    await ctx.send("Someter un material usado a un proceso para que se pueda volver a utilizar.")
+@bot.command()
+async def Como_ahorrar_agua_y_luz(ctx):
+    await ctx.send("Para ahorrar agua necesitas tardarte menos en banarte y para ahorrar luz no dejes las luz prendidas por la noche.")
+@bot.command()
+async def Como_puedo_ayudar_a_los_pobres(ctx):
+    await ctx.send("Manda dinero a lugares donde hagan donaciones a lugares donde los necesiten.")
+bot.run("")
